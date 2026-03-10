@@ -1,0 +1,230 @@
+/* ══════════════════════════════════════
+   STEP SCREENS — Video Game RPG Cards
+   ══════════════════════════════════════ */
+
+.step {
+  width: 100%;
+  max-width: 560px;
+  padding: 8px 20px 24px;
+  animation: popIn 0.45s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@keyframes popIn {
+  from { opacity: 0; transform: scale(0.65) translateY(50px); }
+  to   { opacity: 1; transform: scale(1)    translateY(0);    }
+}
+
+/* ── Progress: coin indicators ── */
+.step-progress {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 28px;
+}
+
+.progress-step {
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Press Start 2P', monospace;
+  font-size: 0.85rem;
+  background: rgba(255,255,255,0.22);
+  border: 3px solid rgba(255,255,255,0.55);
+  color: rgba(255,255,255,0.70);
+  box-shadow: 3px 3px 0 rgba(0,0,0,0.15);
+  transition: all 0.25s;
+}
+
+.progress-step.active {
+  background: var(--pink);
+  border: 3px solid var(--white);
+  color: var(--white);
+  box-shadow: 4px 4px 0 rgba(0,0,0,0.25);
+  transform: scale(1.18);
+}
+
+.progress-step.done {
+  background: var(--white);
+  border: 3px solid var(--pink);
+  color: var(--pink);
+  font-size: 1rem;
+  box-shadow: 3px 3px 0 rgba(0,0,0,0.15);
+}
+
+.progress-connector {
+  width: 52px;
+  height: 5px;
+  background: rgba(255,255,255,0.30);
+  border-radius: 0;
+}
+
+.progress-connector.filled {
+  background: var(--white);
+  box-shadow: 0 2px 0 rgba(0,0,0,0.10);
+}
+
+/* ── Step header ── */
+.step-header {
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+.step-title {
+  font-family: 'Rubik', 'Varela Round', sans-serif;
+  font-weight: 900;
+  font-size: 1.9rem;
+  color: var(--white);
+  margin-bottom: 6px;
+  text-shadow: 3px 3px 0 rgba(0,0,0,0.20);
+}
+
+.step-subtitle {
+  font-size: 0.95rem;
+  color: rgba(255,255,255,0.88);
+  text-shadow: 1px 1px 0 rgba(0,0,0,0.10);
+}
+
+/* ── Breed grid (RPG item cards) ── */
+.options-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.option-card {
+  background: var(--white);
+  border: 3px solid var(--pink);
+  border-radius: 16px;
+  padding: 22px 14px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  font-family: 'Varela Round', sans-serif;
+  box-shadow: var(--shadow-card);
+  transform: translateY(0);
+  transition: transform 0.10s, box-shadow 0.10s, background 0.10s;
+}
+
+.option-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-card-hover);
+  background: var(--pink);
+}
+
+.option-card:hover .option-label       { color: var(--white); }
+.option-card:hover .option-personality { color: rgba(255,255,255,0.9); }
+.option-card:hover .option-examples    { color: rgba(255,255,255,0.7); }
+
+.option-card.selected {
+  background: var(--pink);
+  border-color: var(--white);
+}
+.option-card.selected .option-label       { color: var(--white); }
+.option-card.selected .option-personality { color: rgba(255,255,255,0.9); }
+.option-card.selected .option-examples    { color: rgba(255,255,255,0.7); }
+
+/* Elastic click animation */
+.option-card.bounce-click {
+  animation: cardPop 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@keyframes cardPop {
+  0%   { transform: scale(1);                  }
+  30%  { transform: scale(0.85) rotate(-3deg); }
+  65%  { transform: scale(1.08) rotate(1.5deg);}
+  100% { transform: scale(1) translateY(-5px); }
+}
+
+.option-emoji       { font-size: 3.5rem; }
+.option-label       { font-size: 1.15rem; font-weight: 700; color: var(--dark-text); transition: color 0.10s; }
+.option-personality { font-size: 0.80rem; font-weight: 600; color: var(--pink);      transition: color 0.10s; }
+.option-examples    { font-size: 0.68rem; color: #777;                               transition: color 0.10s; text-align: center; }
+
+/* ── Gender grid ── */
+.gender-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.gender-card {
+  background: var(--white);
+  border: 3px solid var(--pink);
+  border-radius: 20px;
+  padding: 36px 16px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  font-family: 'Varela Round', sans-serif;
+  box-shadow: var(--shadow-card);
+  transform: translateY(0);
+  transition: transform 0.10s, box-shadow 0.10s, background 0.10s, border-color 0.10s;
+}
+
+.gender-card.bounce-click {
+  animation: cardPop 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.gender-card.male:hover {
+  background: #4A90D9;
+  border-color: var(--white);
+  box-shadow: 5px 8px 0 rgba(0,0,0,0.22);
+  transform: translateY(-6px) scale(1.03);
+}
+
+.gender-card.female:hover {
+  background: var(--pink);
+  border-color: var(--white);
+  box-shadow: 5px 8px 0 rgba(0,0,0,0.22);
+  transform: translateY(-6px) scale(1.03);
+}
+
+.gender-card.male:hover  .gender-label,
+.gender-card.male:hover  .gender-desc,
+.gender-card.female:hover .gender-label,
+.gender-card.female:hover .gender-desc { color: var(--white); }
+
+.gender-card:active {
+  transform: translateY(4px) scale(0.97);
+  box-shadow: 2px 2px 0 rgba(0,0,0,0.20);
+}
+
+.gender-icon  { font-size: 3.2rem; }
+.gender-label { font-size: 1.5rem;  font-weight: 700; color: var(--dark-text); transition: color 0.10s; }
+.gender-desc  { font-size: 0.82rem; color: #777;                               transition: color 0.10s; text-align: center; }
+
+/* ── Back button (ghost) ── */
+.btn-back {
+  background: rgba(255,255,255,0.22);
+  border: 2px solid rgba(255,255,255,0.65);
+  border-radius: 50px;
+  padding: 10px 24px;
+  color: var(--white);
+  font-size: 0.88rem;
+  font-weight: 700;
+  font-family: 'Varela Round', sans-serif;
+  cursor: pointer;
+  display: block;
+  margin: 0 auto;
+  box-shadow: 2px 2px 0 rgba(0,0,0,0.10);
+  transition: background 0.10s, transform 0.08s, box-shadow 0.08s;
+}
+
+.btn-back:hover {
+  background: rgba(255,255,255,0.38);
+  transform: translateY(-2px);
+  box-shadow: 2px 4px 0 rgba(0,0,0,0.15);
+}
+
+.btn-back:active {
+  transform: translateY(2px);
+  box-shadow: none;
+}

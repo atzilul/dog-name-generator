@@ -1,0 +1,164 @@
+/* ══════════════════════════════════════
+   WELCOME SCREEN — Video Game Start
+   ══════════════════════════════════════ */
+
+.welcome {
+  text-align: center;
+  padding: 8px 24px 32px;
+  max-width: 480px;
+  width: 100%;
+  position: relative;
+  animation: popIn 0.55s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@keyframes popIn {
+  from { opacity: 0; transform: scale(0.65) translateY(50px); }
+  to   { opacity: 1; transform: scale(1)    translateY(0);    }
+}
+
+/* ── Floating stars ── */
+.paw-trail {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.paw-print {
+  position: absolute;
+  font-size: 1.6rem;
+  animation: starFloat 3s ease-in-out infinite;
+}
+
+.paw-print:nth-child(1) { top: 4%;  left: 4%;  animation-delay: 0s;    }
+.paw-print:nth-child(2) { top: 8%;  right: 6%; animation-delay: 0.6s;  }
+.paw-print:nth-child(3) { top: 55%; left: 2%;  animation-delay: 1.2s;  }
+.paw-print:nth-child(4) { top: 70%; right: 3%; animation-delay: 1.8s;  }
+.paw-print:nth-child(5) { top: 35%; right: 0%; animation-delay: 2.4s;  }
+
+@keyframes starFloat {
+  0%, 100% { opacity: 0.7;  transform: translateY(0)     scale(1);    }
+  50%       { opacity: 1;   transform: translateY(-12px) scale(1.3);  }
+}
+
+/* ── Dog ── */
+.welcome-dog {
+  font-size: 92px;
+  display: block;
+  margin-bottom: 12px;
+  animation: dogBounce 0.55s ease-in-out infinite alternate;
+  filter: drop-shadow(4px 4px 0 rgba(0,0,0,0.2));
+}
+
+@keyframes dogBounce {
+  from { transform: translateY(0)     rotate(-7deg) scale(1);    }
+  to   { transform: translateY(-20px) rotate(7deg)  scale(1.06); }
+}
+
+/* ── Badge (coin token) ── */
+.welcome-badge {
+  display: inline-block;
+  background: var(--pink);
+  color: var(--white);
+  border: 3px solid var(--white);
+  border-radius: 50px;
+  padding: 5px 18px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  font-family: 'Varela Round', sans-serif;
+  margin-bottom: 16px;
+  box-shadow: 3px 3px 0 rgba(0,0,0,0.2);
+}
+
+/* ── Title ── */
+.welcome-title {
+  font-family: 'Rubik', 'Varela Round', sans-serif;
+  font-weight: 900;
+  font-size: 2.2rem;
+  color: var(--white);
+  line-height: 1.2;
+  margin-bottom: 18px;
+  letter-spacing: -0.5px;
+  text-shadow: 3px 3px 0 rgba(0,0,0,0.22);
+}
+
+.welcome-title-sub {
+  font-size: 1.35rem;
+  font-weight: 700;
+  display: block;
+  margin-top: 6px;
+  color: rgba(255,255,255,0.92);
+}
+
+/* ── Feature chips ── */
+.welcome-chips {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 30px;
+}
+
+.welcome-chips span {
+  background: rgba(255,255,255,0.22);
+  border: 2px solid rgba(255,255,255,0.65);
+  border-radius: 50px;
+  padding: 6px 14px;
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--white);
+  box-shadow: 2px 2px 0 rgba(0,0,0,0.10);
+  transition: background 0.12s, transform 0.1s;
+}
+
+.welcome-chips span:hover {
+  background: rgba(255,255,255,0.38);
+  transform: translateY(-2px);
+}
+
+/* ── CTA Button — 3D press ── */
+.btn-start {
+  background: var(--pink);
+  color: var(--white);
+  border: 3px solid var(--white);
+  border-radius: 50px;
+  padding: 16px 52px;
+  font-size: 1.2rem;
+  font-weight: 700;
+  font-family: 'Varela Round', sans-serif;
+  cursor: pointer;
+  box-shadow: var(--shadow-btn);
+  transform: translateY(0);
+  transition: transform 0.08s, box-shadow 0.08s;
+  position: relative;
+  display: block;
+  margin: 0 auto 12px;
+  /* "PRESS START" blink */
+  animation: btnBlink 1.8s ease-in-out infinite;
+}
+
+@keyframes btnBlink {
+  0%, 85%, 100% { opacity: 1;   }
+  92%            { opacity: 0.6; }
+}
+
+.btn-start:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-btn-hover);
+  animation: none;
+  opacity: 1;
+}
+
+.btn-start:active,
+.btn-start.clicked {
+  transform: translateY(6px);
+  box-shadow: 0 0 0 var(--pink-dark);
+  animation: none;
+}
+
+/* ── Hint ── */
+.welcome-hint {
+  color: rgba(255,255,255,0.85);
+  font-size: 0.82rem;
+  text-shadow: 1px 1px 0 rgba(0,0,0,0.12);
+}

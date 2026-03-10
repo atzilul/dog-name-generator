@@ -1,0 +1,69 @@
+/* ══════════════════════════════════════
+   GLOBAL — Video Game Theme
+   ══════════════════════════════════════ */
+:root {
+  /* Brand palette */
+  --green:         #b6d267;
+  --green-dark:    #8aab3a;
+  --green-light:   #d4e896;
+  --pink:          #e04792;
+  --pink-dark:     #8B1D5E;
+  --pink-glow:     rgba(224, 71, 146, 0.4);
+  --white:         #FFFFFF;
+  --dark-text:     #1a1a2e;
+
+  /* Surfaces */
+  --card:          #FFFFFF;
+  --card-hover:    #fef6fb;
+
+  /* Text */
+  --text:          #FFFFFF;
+  --text-muted:    rgba(255, 255, 255, 0.80);
+
+  /* Hard pixel shadows (no blur) */
+  --shadow-card:       4px 4px 0 rgba(0, 0, 0, 0.20);
+  --shadow-card-hover: 4px 8px 0 rgba(0, 0, 0, 0.25);
+  --shadow-btn:        0 6px 0 var(--pink-dark), 0 7px 2px rgba(0,0,0,0.20);
+  --shadow-btn-hover:  0 9px 0 var(--pink-dark), 0 10px 2px rgba(0,0,0,0.20);
+
+  /* Kept for backward-compat references */
+  --green-glow: rgba(182, 210, 103, 0.35);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Varela Round', 'Segoe UI', system-ui, sans-serif;
+  /* Polka-dot background */
+  background-color: #b6d267;
+  background-image: radial-gradient(
+    circle,
+    rgba(255, 255, 255, 0.22) 1.5px,
+    transparent 1.5px
+  );
+  background-size: 28px 28px;
+  min-height: 100vh;
+  color: var(--white);
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--green-dark); }
+::-webkit-scrollbar-thumb { background: var(--pink); border-radius: 3px; }
+
+/* Focus */
+:focus-visible {
+  outline: 3px solid var(--white);
+  outline-offset: 2px;
+}
+
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
